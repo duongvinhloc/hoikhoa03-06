@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wedding Invitation Minh&Thuy</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth;}
+body{font-family:'Cormorant Garamond',serif;background:#7c1c14;overflow-x:hidden;}
+.section{min-height:100vh;display:flex;justify-content:center;align-items:center;padding:40px 20px;opacity:0;transform:translateY(50px);transition:all 1s ease;}
+.section.show{opacity:1;transform:translateY(0);}
+.page{width:100%;max-width:560px;min-height:100vh;padding:70px 50px;}
+.cover-wrap{position:fixed;inset:0;background:#7c1c14;display:flex;z-index:9999;cursor:pointer;}
+.door{width:50%;background:#7c1c14;transition:transform 1.6s ease;display:flex;justify-content:center;align-items:center;color:#fff;font-size:60px;}
+.cover-wrap.open .left{transform:translateX(-100%);} 
+.cover-wrap.open .right{transform:translateX(100%);} 
+.cover-wrap.hidden{display:none;}
+.cover{background:#7c1c14;color:white;text-align:center;display:flex;flex-direction:column;justify-content:center;}
+.date-stack{font-size:90px;line-height:1;font-weight:300;}
+.monogram{margin-top:80px;font-family:'Great Vibes',cursive;font-size:52px;}
+.namesmall{font-size:14px;letter-spacing:2px;}
+.family{background:#7c1c14;color:white;}
+.family-top{display:flex;justify-content:space-between;margin-top:60px;font-size:15px;line-height:1.6;gap:20px;}
+.bride{font-size:54px;margin-top:25px;}
+.groom{font-size:50px;margin-top:10px;}
+.bottom-row{display:flex;justify-content:space-between;margin-top:70px;font-size:18px;}
+.detail{background:#f3f0eb;color:#6e2b22;text-align:center;}
+.place{font-size:54px;margin-top:15px;}
+.gallery{background:#fff;padding:30px;display:grid;grid-template-columns:1fr;gap:18px;align-items:center;justify-items:center;}
+.gallery img{width:85%;height:320px;border-radius:18px;object-fit:cover;object-position:center;box-shadow:0 10px 20px rgba(0,0,0,.15);} 
+.map iframe{width:100%;height:420px;border:none;border-radius:18px;}
+@media(max-width:768px){.date-stack{font-size:70px}.bride{font-size:42px}.groom{font-size:38px}.place{font-size:42px}}
+</style>
+</head>
+<body>
+
+<audio autoplay loop>
+<source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mpeg">
+</audio>
+
+<div class="cover-wrap" id="cover">
+<div class="door left">M</div>
+<div class="door right">T</div>
+</div>
+
+<section class="section cover show">
+<div class="page cover">
+<div class="date-stack">12</div>
+<div class="date-stack">05</div>
+<div class="date-stack">26</div>
+<div class="monogram">M</div>
+<div class="namesmall">MINH & THUÝ</div>
+</div>
+</section>
+
+<section class="section family">
+<div class="page family">
+<div class="family-top">
+<div>Ông Bà<br><b>NGUYỄN NGỌC CÔNG</b><br><b>PHẠM THỊ BÍCH</b><br>TP. Đà Nẵng</div>
+<div>Ông Bà<br><b>MAI VĂN SƠN</b><br><b>NGUYỄN THỊ KIM PHƯỢNG</b><br>TP. Hồ Chí Minh</div>
+</div>
+<div style="margin-top:60px;font-size:20px;">Trân trọng báo tin LỄ VU QUY của con chúng tôi</div>
+<div class="bride">Nguyễn Thị Ngọc Thuý</div>
+<div class="groom">Mai Quang Minh</div>
+<div style="margin-top:20px;font-style:italic;">Thứ Nữ & Út Nam</div>
+<div class="bottom-row">
+<div>11:00<br><small>Đón khách</small></div>
+<div>12.05.2026<br><small>26 tháng 03 Bính Ngọ</small></div>
+</div>
+</div>
+</section>
+
+<section class="section detail">
+<div class="page detail">
+<h1 style="font-family:'Great Vibes';font-size:60px;">Thiệp mời</h1>
+<div style="margin-top:20px;">TRÂN TRỌNG KÍNH MỜI</div>
+<div style="margin-top:30px;">TRUNG TÂM HỘI NGHỊ TIỆC CƯỚI</div>
+<div class="place">For U Palace</div>
+<div style="font-size:22px;margin-top:10px;">SẢNH ROSE - TẦNG 1</div>
+<div style="margin-top:15px;">Công viên trung tâm đường 2/9, phường Hoà Cường, TP Đà Nẵng</div>
+<div style="margin-top:25px;">THỨ BA | 12.05.2026</div>
+<div style="margin-top:20px;">Khai tiệc: 12:00</div>
+</div>
+</section>
+
+<section class="section map" style="padding:0;">
+<div class="page" style="background:#fff;display:flex;align-items:center;justify-content:center;min-height:auto;padding:20px;">
+<iframe src="https://www.google.com/maps?q=For+U+Palace+Da+Nang&output=embed"></iframe>
+</div>
+</section>
+
+<section class="section gallery">
+<div class="page gallery">
+<img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=900&q=80">
+<img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=900&q=80">
+<img src="https://images.unsplash.com/photo-1529636798458-92182e662485?auto=format&fit=crop&w=900&q=80">
+<img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=80">
+<img src="https://images.unsplash.com/photo-1525258946800-98cfd641d0de?auto=format&fit=crop&w=900&q=80">
+</div>
+</section>
+
+<script>
+document.getElementById('cover').addEventListener('click',function(){
+this.classList.add('open');
+setTimeout(()=>this.classList.add('hidden'),1600);
+});
+
+const sections=document.querySelectorAll('.section');
+window.addEventListener('scroll',()=>{
+sections.forEach(sec=>{
+const top=sec.getBoundingClientRect().top;
+if(top<window.innerHeight-100){sec.classList.add('show');}
+});
+});
+</script>
+
+</body>
+</html>
