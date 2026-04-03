@@ -1,1 +1,437 @@
 
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hội Khoá 20 Năm – 12/1 Nguyễn Duy Hiệu</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&family=Nunito:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --red: #E8344A;
+    --orange: #FF8C42;
+    --yellow: #FFD166;
+    --cream: #FFF8F0;
+  }
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--cream);
+    color: #333;
+    overflow-x: hidden;
+  }
+
+  /* ===== PHOTO BANNER ===== */
+  .banner {
+    position: relative;
+    width: 100%;
+    background: #111;
+    overflow: hidden;
+  }
+  .banner-grid {
+    display: grid;
+    grid-template-columns: 1.55fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 3px;
+    height: clamp(340px, 50vw, 490px);
+  }
+  .bimg {
+    overflow: hidden;
+    position: relative;
+  }
+  .bimg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: brightness(0.8);
+    animation: slowzoom 18s ease-in-out infinite alternate;
+  }
+  @keyframes slowzoom {
+    from { transform: scale(1.0); }
+    to   { transform: scale(1.07); }
+  }
+  .bimg-main { grid-row: 1 / 3; }
+
+  .bimg-tag {
+    position: absolute;
+    bottom: 10px; left: 10px;
+    background: rgba(0,0,0,0.48);
+    color: rgba(255,255,255,0.92);
+    font-size: 11px; font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 20px;
+    backdrop-filter: blur(6px);
+  }
+
+  /* Gradient overlays for text */
+  .banner-overlay {
+    position: absolute; inset: 0; z-index: 2; pointer-events: none;
+    background:
+      linear-gradient(to top,    rgba(0,0,0,0.80) 0%,  rgba(0,0,0,0.0) 50%),
+      linear-gradient(to bottom, rgba(0,0,0,0.25) 0%,  rgba(0,0,0,0.0) 30%),
+      linear-gradient(to right,  rgba(0,0,0,0.22) 0%,  transparent 55%);
+  }
+
+  /* Falling petals */
+  .petals { position: absolute; inset: 0; z-index: 3; pointer-events: none; overflow: hidden; }
+  .petal  { position: absolute; top: -30px; animation: fall linear infinite; opacity: 0; }
+  .petal:nth-child(1) { left:4%;  font-size:18px; animation-duration:7s;   animation-delay:0s;    }
+  .petal:nth-child(2) { left:15%; font-size:24px; animation-duration:9s;   animation-delay:-2s;   }
+  .petal:nth-child(3) { left:27%; font-size:15px; animation-duration:6.5s; animation-delay:-4.5s; }
+  .petal:nth-child(4) { left:40%; font-size:21px; animation-duration:10s;  animation-delay:-1s;   }
+  .petal:nth-child(5) { left:54%; font-size:17px; animation-duration:7.5s; animation-delay:-5.5s; }
+  .petal:nth-child(6) { left:67%; font-size:23px; animation-duration:8.5s; animation-delay:-3s;   }
+  .petal:nth-child(7) { left:79%; font-size:16px; animation-duration:6s;   animation-delay:-6s;   }
+  .petal:nth-child(8) { left:91%; font-size:20px; animation-duration:9.5s; animation-delay:-1.5s; }
+  @keyframes fall {
+    0%   { transform: translateY(0)    rotate(0deg);   opacity: 0;    }
+    8%   { opacity: 0.88; }
+    90%  { opacity: 0.7; }
+    100% { transform: translateY(520px) rotate(420deg); opacity: 0; }
+  }
+
+  /* Bicycle */
+  .bike {
+    position: absolute; bottom: 88px; left: -110px; z-index: 4;
+    animation: ride 16s linear infinite;
+  }
+  .bike svg { width: 74px; height: 50px; }
+  @keyframes ride {
+    0%   { left: -110px; opacity: 0; }
+    4%   { opacity: 1; }
+    96%  { opacity: 1; }
+    100% { left: calc(100% + 110px); opacity: 0; }
+  }
+
+  /* Hero text */
+  .hero-text {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    z-index: 5; text-align: center;
+    padding: 2.5rem 1.5rem 1.7rem;
+  }
+  .badge {
+    display: inline-block;
+    background: var(--red); color: #fff;
+    font-family: 'Baloo 2', cursive;
+    font-size: 11.5px; font-weight: 700;
+    letter-spacing: 2.5px; padding: 4px 18px;
+    border-radius: 30px; margin-bottom: 10px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 18px rgba(232,52,74,0.6);
+  }
+  .hero-title {
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(1.95rem, 5.5vw, 3.1rem);
+    font-weight: 800; color: #fff;
+    line-height: 1.18;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.6);
+    margin-bottom: 6px;
+  }
+  .hero-title span { color: var(--yellow); }
+  .hero-sub {
+    font-size: clamp(0.88rem, 2.2vw, 1.08rem);
+    color: rgba(255,255,255,0.88);
+    font-weight: 600;
+    text-shadow: 0 1px 8px rgba(0,0,0,0.5);
+  }
+
+  /* ===== MAIN ===== */
+  .main { max-width: 760px; margin: 0 auto; padding: 0 1.25rem 3rem; }
+
+  .quote-banner {
+    background: var(--red); color: white;
+    padding: 1.2rem 2rem;
+    border-radius: 0 0 20px 20px;
+    text-align: center;
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(1rem, 2.8vw, 1.22rem);
+    font-weight: 700; line-height: 1.55;
+    box-shadow: 0 6px 20px rgba(232,52,74,0.3);
+    margin-bottom: 2.5rem;
+  }
+  .quote-banner em { color: var(--yellow); font-style: normal; }
+
+  .letter-card {
+    background: white; border-radius: 20px;
+    padding: 2rem 2.25rem;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+    border: 2px solid rgba(232,52,74,0.1);
+    position: relative; overflow: hidden;
+    margin-bottom: 2rem;
+  }
+  .letter-card::before {
+    content: ''; position: absolute;
+    top: 0; left: 0; right: 0; height: 5px;
+    background: linear-gradient(90deg, var(--red), var(--orange), var(--yellow), #06D6A0, #4CC9F0, var(--red));
+    background-size: 300%;
+    animation: rainbow 4s linear infinite;
+  }
+  @keyframes rainbow { 0%{ background-position:0%; } 100%{ background-position:300%; } }
+
+  .letter-card p {
+    font-size: clamp(0.97rem, 2.2vw, 1.07rem);
+    line-height: 1.9; color: #444; margin-bottom: 1.1rem;
+  }
+  .letter-card p:last-child { margin-bottom: 0; }
+  .hl-red    { color: var(--red);    font-weight: 700; }
+  .hl-orange { color: var(--orange); font-weight: 700; }
+
+  .phuong-row {
+    display: flex; justify-content: center; gap: 8px;
+    margin: 1.4rem 0; font-size: 26px;
+    animation: sway 2.8s ease-in-out infinite;
+  }
+  @keyframes sway { 0%,100%{ transform:rotate(-2deg); } 50%{ transform:rotate(2deg); } }
+
+  .event-box {
+    background: linear-gradient(135deg, #FFF0F2 0%, #FFF5E0 100%);
+    border: 2px solid var(--red); border-radius: 20px;
+    padding: 1.75rem 2rem; margin-bottom: 2rem;
+    position: relative; overflow: hidden;
+  }
+  .event-box::after { content:'🎉'; position:absolute; font-size:80px; right:-10px; bottom:-10px; opacity:0.12; }
+  .event-box h2 {
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(1.15rem, 3.1vw, 1.65rem);
+    font-weight: 800; color: var(--red);
+    text-align: center; margin-bottom: 1.1rem; line-height: 1.38;
+  }
+  .event-title {
+    text-align: center;
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(1.3rem, 3.7vw, 1.9rem);
+    font-weight: 800; color: var(--red);
+    margin-bottom: 1.5rem; line-height: 1.3;
+  }
+  .event-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(165px, 1fr));
+    gap: 1rem;
+  }
+  .detail-item {
+    background: white; border-radius: 14px;
+    padding: 1rem 1.1rem;
+    display: flex; align-items: flex-start; gap: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  }
+  .detail-icon { font-size: 26px; flex-shrink: 0; margin-top: 2px; }
+  .detail-label { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #999; margin-bottom: 3px; }
+  .detail-value { font-weight: 700; font-size: 0.95rem; color: #333; line-height: 1.45; }
+
+  .maps-btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: white; color: var(--red);
+    font-weight: 700; font-size: 1rem;
+    padding: 0.75rem 1.75rem; border-radius: 50px;
+    text-decoration: none; border: 2px solid var(--red);
+    box-shadow: 0 4px 12px rgba(232,52,74,0.2);
+    margin-top: 1.25rem;
+  }
+
+  .closing-card {
+    background: linear-gradient(135deg, var(--red) 0%, var(--orange) 100%);
+    border-radius: 20px; padding: 2rem 2.25rem;
+    text-align: center; color: white;
+    position: relative; overflow: hidden;
+    box-shadow: 0 10px 30px rgba(232,52,74,0.35);
+  }
+  .closing-card::before { content:'🌺'; position:absolute; font-size:120px; left:-20px; top:-10px; opacity:0.12; }
+  .closing-card::after  { content:'🌺'; position:absolute; font-size:120px; right:-20px; bottom:-10px; opacity:0.12; transform:scaleX(-1); }
+  .closing-card p { font-size:clamp(1rem,2.5vw,1.15rem); line-height:1.85; position:relative; z-index:1; margin-bottom:1rem; }
+  .closing-card p:last-child { margin-bottom:0; }
+  .big-emoji { font-size:2.5rem; display:block; margin-bottom:0.75rem; animation: bounce 1.5s ease-in-out infinite; }
+  @keyframes bounce { 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-8px); } }
+
+  .footer {
+    text-align:center; margin-top:2.5rem;
+    padding-top:1.5rem;
+    border-top:2px dashed rgba(232,52,74,0.2);
+    font-size:13px; color:#aaa; line-height:1.8;
+  }
+  .footer strong { color: var(--red); }
+</style>
+</head>
+<body>
+
+<!-- ===== PHOTO BANNER ===== -->
+<div class="banner">
+
+  <div class="banner-grid">
+
+    <!-- Main tall left: cổng trường / mặt tiền trường thật -->
+    <div class="bimg bimg-main">
+      <img src="https://s-aicmscdn.vietnamhoinhap.vn/vnhn-media/bai-anh/ndh-hinh-2.jpg"
+           alt="Cổng trường THPT Nguyễn Duy Hiệu"
+           style="object-position: center 30%;">
+    </div>
+
+    <!-- Top right: hoa phượng đỏ thật -->
+    <div class="bimg">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Delonix_regia_MS_4580.jpg/640px-Delonix_regia_MS_4580.jpg"
+           alt="Hoa phượng đỏ"
+           onerror="this.src='https://s-aicmscdn.vietnamhoinhap.vn/vnhn-media/bai-anh/ndh-hinh-1.jpg'">
+      <span class="bimg-tag">🌺 Hoa phượng đỏ</span>
+    </div>
+
+    <!-- Bottom right: học sinh / cựu học sinh thật -->
+    <div class="bimg">
+      <img src="https://s-aicmscdn.vietnamhoinhap.vn/vnhn-media/bai-anh/ndh-hinh-6.jpg"
+           alt="Cựu học sinh THPT Nguyễn Duy Hiệu"
+           style="object-position: center 10%;">
+      <span class="bimg-tag">🎓 Hội cựu học sinh</span>
+    </div>
+
+  </div>
+
+  <!-- Gradient overlay -->
+  <div class="banner-overlay"></div>
+
+  <!-- Petals -->
+  <div class="petals">
+    <span class="petal">🌺</span><span class="petal">🌸</span>
+    <span class="petal">🌺</span><span class="petal">🌸</span>
+    <span class="petal">🌺</span><span class="petal">🌸</span>
+    <span class="petal">🌺</span><span class="petal">🌸</span>
+  </div>
+
+  <!-- Bicycle -->
+  <div class="bike">
+    <svg viewBox="0 0 90 60" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="18" cy="44" r="14" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="2.5"/>
+      <circle cx="72" cy="44" r="14" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="2.5"/>
+      <circle cx="18" cy="44" r="3" fill="rgba(255,255,255,0.7)"/>
+      <circle cx="72" cy="44" r="3" fill="rgba(255,255,255,0.7)"/>
+      <line x1="18" y1="30" x2="18" y2="58" stroke="rgba(255,255,255,0.45)" stroke-width="1.2"/>
+      <line x1="4"  y1="44" x2="32" y2="44" stroke="rgba(255,255,255,0.45)" stroke-width="1.2"/>
+      <line x1="58" y1="30" x2="86" y2="58" stroke="rgba(255,255,255,0.45)" stroke-width="1.2"/>
+      <line x1="58" y1="58" x2="86" y2="30" stroke="rgba(255,255,255,0.45)" stroke-width="1.2"/>
+      <line x1="18" y1="44" x2="45" y2="20" stroke="#FFD166" stroke-width="2.5"/>
+      <line x1="45" y1="20" x2="72" y2="44" stroke="#FFD166" stroke-width="2.5"/>
+      <line x1="18" y1="44" x2="45" y2="44" stroke="#FFD166" stroke-width="2.5"/>
+      <line x1="45" y1="20" x2="45" y2="44" stroke="#FFD166" stroke-width="2"/>
+      <line x1="72" y1="44" x2="68" y2="18" stroke="rgba(255,255,255,0.8)" stroke-width="2.2"/>
+      <line x1="62" y1="16" x2="74" y2="16" stroke="rgba(255,255,255,0.8)" stroke-width="2.2"/>
+      <line x1="45" y1="20" x2="42" y2="10" stroke="rgba(255,255,255,0.8)" stroke-width="2"/>
+      <line x1="38" y1="9"  x2="48" y2="9"  stroke="rgba(255,255,255,0.8)" stroke-width="3"/>
+      <circle cx="50" cy="5" r="4" fill="#FFB74D"/>
+      <line x1="50" y1="9" x2="45" y2="20" stroke="white" stroke-width="2"/>
+      <line x1="47" y1="14" x2="65" y2="16" stroke="white" stroke-width="2"/>
+      <line x1="45" y1="20" x2="40" y2="30" stroke="white" stroke-width="2"/>
+      <line x1="45" y1="20" x2="55" y2="30" stroke="white" stroke-width="2"/>
+    </svg>
+  </div>
+
+  <!-- Hero text on photo -->
+  <div class="hero-text">
+    <div class="badge">✨ Kỷ niệm 20 năm · 2006 – 2026 ✨</div>
+    <h1 class="hero-title">Hội Khoá <span>Lớp 12/1</span><br>Nguyễn Duy Hiệu</h1>
+    <p class="hero-sub">Khoá 03–06 · Điện Bàn · Quảng Nam 🌺</p>
+  </div>
+
+</div>
+
+<!-- Quote -->
+<div style="max-width:760px; margin:0 auto; padding:0 1.25rem;">
+  <div class="quote-banner">
+    <em>"Nếu cả đời này không rực rỡ thì sao?"</em><br>
+    Ừ thì… kệ! <em>Quan trọng là hôm đó phải vui cái đã!</em> 😤
+  </div>
+</div>
+
+<!-- Main -->
+<div class="main">
+
+  <div class="letter-card">
+    <p>Ê ê ê, để tao kể cho <strong>tụi bây</strong> nghe nè! 🗣️</p>
+    <p>
+      <span class="hl-red">20 NĂM RỒI ĐÓ!!!</span> 🤯
+      Hai mươi năm — không phải hai mươi ngày hay hai mươi tuần nghe chưa?
+      <strong>Thời gian như chó chạy ngoài đồng</strong>, tao nói thiệt mà không nói chơi!
+    </p>
+    <p>
+      Hồi đó tụi mình còn mặc <span class="hl-orange">đồng phục trắng, áo dài</span>, cặp to đùng đùng,
+      tóc còn xịn hơn bây giờ nhiều… 🎒
+      Vậy mà giờ nhìn lại — <em>cuộc đời nó "trưởng thành" hết rồi bạn ơi!</em>
+      Tiền điện, tiền sữa con, deadline công ty, <strong>sếp ơi sếp ới</strong> — mi quen hết rồi hả? 😅
+    </p>
+    <div class="phuong-row">🌺🌸🌺🌸🌺🌸🌺</div>
+    <p>
+      Thôi, <span class="hl-red">dẹp hết!</span> Cho một ngày, tụi mình cùng nhau
+      <strong>"bỏ tuổi tác lại nhà"</strong> — về lại cái thời mà lo lắng lớn nhất của cuộc đời chỉ là:
+    </p>
+    <p style="background:#FFF5E0; border-left:4px solid var(--orange); padding:0.9rem 1.2rem; border-radius:0 12px 12px 0; font-weight:600; color:#555;">
+      📝 Kiểm tra 15 phút Toán có <em>trúng tủ không?</em><br>
+      🥖 Chiều ni có tiền ăn bánh mỳ căn tin không? 😂
+    </p>
+    <p>Thiệt tình, mấy cái lo đó bây giờ nhớ lại thấy <strong>thương ơi là thương</strong> luôn đó tụi bây ơi! 🥹</p>
+  </div>
+
+  <div class="event-box">
+    <h2>
+      📣 Kính mời toàn thể cựu học sinh<br>
+      <span style="color:#E8344A;">lớp 12/1 huyền thoại</span> — khoá 03–06<br>
+      <span style="font-size:0.82em; color:#aaa;">THPT Nguyễn Duy Hiệu · Điện Bàn</span><br>
+      cùng về dự:
+    </h2>
+    <p class="event-title">🎉 Hội Khoá Kỷ Niệm 20 Năm Ra Trường 🎉</p>
+    <div class="event-details">
+      <div class="detail-item">
+        <div class="detail-icon">📅</div>
+        <div>
+          <div class="detail-label">Thời gian</div>
+          <div class="detail-value">7h30 sáng<br>Ngày 12/02/2026</div>
+        </div>
+      </div>
+      <div class="detail-item">
+        <div class="detail-icon">📍</div>
+        <div>
+          <div class="detail-label">Địa điểm</div>
+          <div class="detail-value">Sân trường THPT Nguyễn Duy Hiệu<br>Phường Điện Bàn, TP. Đà Nẵng</div>
+        </div>
+      </div>
+      <div class="detail-item">
+        <div class="detail-icon">🎒</div>
+        <div>
+          <div class="detail-label">Khoá</div>
+          <div class="detail-value">2003 – 2006<br>Lớp 12/1 huyền thoại</div>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;">
+      <a class="maps-btn" href="https://maps.app.goo.gl/11DZY4eufmVTcwmZ8" target="_blank" rel="noopener">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="#E8344A"/>
+        </svg>
+        Xem đường đi trên Google Maps 🗺️
+      </a>
+      <p style="font-size:12px; color:#aaa; margin-top:8px;">📌 QL1A, Phường Vĩnh Điện, Thị xã Điện Bàn, Quảng Nam</p>
+    </div>
+  </div>
+
+  <div class="closing-card">
+    <span class="big-emoji">🥹</span>
+    <p>
+      Đây là ngày để cả tụi mình tụ lại, nhìn nhau mà kêu lên:<br>
+      <strong style="font-size:1.15em;">"Trời ơi, <em>mi già vậy sao?!</em>"</strong><br>
+      — rồi cùng nhau cười ầm lên vì… <strong>mình già như nhau hết trơn!</strong> 😂
+    </p>
+    <p>
+      Nào là đứa bạn cùng bàn hồi lớp 10, đứa hay <em>chép bài</em>,
+      đứa hay bị <em>kêu lên bảng</em>…
+      Dù mi đang làm gì, ở mô — <strong>về đây một bữa cho nó ra trò</strong> nào tụi bây ơi! 🙌
+    </p>
+    <p style="font-size:1.1em; font-weight:700; margin-top:0.5rem;">
+      Gặp nhau đi, kẻo… tóc còn ít hơn nữa thì nhận không ra nhau đâu! 🧓😂
+    </p>
+  </div>
+
+  <div class="footer">
+    <div style="font-size:22px; margin-bottom:0.5rem;">🌺 🎒 📚 ✏️ 🚲 🌺</div>
+    <strong>Khoá 03–06 · Lớp 12/1 · THPT Nguyễn Duy Hiệu · Điện Bàn</strong><br>
+    Hội khoá kỷ niệm 20 năm ra trường · 12/02/2026
+  </div>
+
+</div>
+</body>
+</html>
